@@ -1,6 +1,5 @@
 {
   "meta": {
-    "title": "历史会话搜索",
     "description": "给 Agent 一个 session_search 工具：跨全部历史会话搜索、读取、浏览，用户提到「之前聊过」时不用再重复一遍。"
   }
 }

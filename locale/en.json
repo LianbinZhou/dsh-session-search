@@ -1,6 +1,5 @@
 {
   "meta": {
-    "title": "Session search",
     "description": "Gives the agent a session_search tool: search and read past sessions across the whole session corpus."
   }
 }

@@ -1,0 +1,19 @@
+# Full-text session search is an opt-in seam: `@deepseek-ai/dsh-base` mounts this
+# row with `openAt: never` + an in-memory index, which keeps `ctx.sessionQuery`
+# available for exact reads, titles and lineage but makes `searchSessions` fail
+# with SESSION_QUERY_SEARCH_DISABLED (the Web sidebar search then matches titles
+# and workspace names only). dsh-base's own comment names this override — a later
+# patch layer setting `openAt: first-search` with a durable `path`.
+#
+# `first-search` defers the node:sqlite import and the index handle to the first
+# search, so DSH startup stays quiet (only an ExperimentalWarning from node:sqlite
+# may appear once). This index is derived and never touches session persistence.
+- id: session-query-sqlite
+  config:
+    path: 'C:\Users\zhou0\.dsh\storages\session-search.db'
+    openAt: first-search
+
+- insert:
+    - id: tool-session-search
+      name: '@local/dsh-session-search'
+      config: {}

@@ -1,0 +1,21 @@
+{
+  "name": "@local/dsh-session-search",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Gives the agent a session_search tool: search and read past sessions across the whole session corpus.",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "exports": {
+    ".": "./index.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
